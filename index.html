@@ -3,10 +3,23 @@
 <head>
     <title>Il mio sito di prova</title>
     <style>
-        img {
-            width: 200px; /* Imposta la larghezza dell'immagine a 200 pixel */
+        #pinForm {
+            display: none; /* Nascondi il form del PIN all'avvio */
         }
     </style>
+    <script>
+        function checkPIN() {
+            var pin = document.getElementById('pinInput').value;
+
+            // Verifica se il PIN inserito è corretto
+            if (pin === '2310') {
+                document.getElementById('pinForm').style.display = 'none'; // Nascondi il form del PIN
+                document.getElementById('content').style.display = 'block'; // Mostra il contenuto della pagina
+            } else {
+                alert('PIN errato! Riprova.'); // Mostra un messaggio di errore
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -22,10 +35,18 @@
     </nav>
 
     <main>
-        <h2>Benvenuti nel nostro sito!</h2>
-        <p>Questo è un sito di prova per imparare a creare siti web.</p>
-        <p>Esplora e divertiti mentre sperimenti!</p>
-        <img src="negroni.jpeg" alt="Descrizione dell'immagine">
+        <div id="pinForm">
+            <label for="pinInput">Inserisci il PIN:</label>
+            <input type="password" id="pinInput" maxlength="4">
+            <button onclick="checkPIN()">Accedi</button>
+        </div>
+
+        <div id="content" style="display: none;">
+            <h2>Benvenuti nel nostro sito!</h2>
+            <p>Questo è un sito di prova per imparare a creare siti web.</p>
+            <p>Esplora e divertiti mentre sperimenti!</p>
+            <img src="negroni.jpeg" alt="Descrizione dell'immagine">
+        </div>
     </main>
 
     <footer>
