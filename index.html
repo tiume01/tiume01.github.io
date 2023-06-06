@@ -4,7 +4,10 @@
     <title>Il mio sito di prova</title>
     <style>
         #pinForm {
-            display: none; /* Nascondi il form del PIN all'avvio */
+            display: block; /* Mostra il form del PIN all'avvio */
+        }
+        #content {
+            display: none; /* Nascondi il contenuto della pagina all'avvio */
         }
     </style>
     <script>
@@ -12,7 +15,7 @@
             var pin = document.getElementById('pinInput').value;
 
             // Verifica se il PIN inserito è corretto
-            if (pin === '2310') {
+            if (pin === '1234') {
                 document.getElementById('pinForm').style.display = 'none'; // Nascondi il form del PIN
                 document.getElementById('content').style.display = 'block'; // Mostra il contenuto della pagina
             } else {
@@ -41,7 +44,7 @@
             <button onclick="checkPIN()">Accedi</button>
         </div>
 
-        <div id="content" style="display: none;">
+        <div id="content">
             <h2>Benvenuti nel nostro sito!</h2>
             <p>Questo è un sito di prova per imparare a creare siti web.</p>
             <p>Esplora e divertiti mentre sperimenti!</p>
@@ -54,3 +57,4 @@
     </footer>
 </body>
 </html>
+
