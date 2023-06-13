@@ -7,9 +7,9 @@
       font-family: Arial, sans-serif;
       margin: 20px;
       background-image: url("bandiera_spagnola.jpeg");
-      background-repeat: no-repeat;
       background-size: cover;
-      position: relative; /* Aggiungi posizione relativa per consentire sovrapposizione */
+      background-repeat: no-repeat;
+      position: relative; /* Aggiunta della posizione relativa al corpo del documento */
     }
     h1 {
       color: #333;
@@ -27,20 +27,13 @@
       text-decoration: none;
     }
     .day-image {
+      position: absolute; /* Aggiunta della posizione assoluta alle immagini */
+      top: 0;
+      right: 0;
+      margin: 10px;
       width: 200px;
       height: 200px;
-      float: right;
-      margin-left: 10px;
-    }
-    .overlay {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.3); /* Modifica l'opacità del colore di sovrapposizione qui */
-      z-index: -1;
+      z-index: 1; /* Impostazione di un valore di z-index per sovrapporre le immagini */
     }
   </style>
 </head>
@@ -80,64 +73,30 @@
   <p>13:30 - Dopo la visita al Camp Nou, pranza in uno dei ristoranti del quartiere di Les Corts, vicino allo stadio.</p>
   <p>15:00 - Dopo pranzo, prendi la metropolitana per Montjuic e visita il Castello di Montjuic, che offre una vista panoramica sulla città.</p>
   <p>17:00 - Dopo la visita al Castello di Montjuic, vai alla Fontana Magica per ammirare lo spettacolo di luci e musica serale.</p>
-  <p>19:00 - Dopo la visita alla Fontana Magica, dirigiti verso il Tot 1€ Bar, serata libera.</p>
+  <p>19:00 - Dopo la visita alla Fontana Magica, dirigiti verso il Tot 1 Pallet per gustare tapas e vini locali.</p>
+  <p>21:00 - Concludi la tua serata passeggiando lungo il lungomare di Barceloneta e goditi una cena di pesce fresco in uno dei ristoranti sulla spiaggia.</p>
 
   <h2>29 LUGLIO:</h2>
   <img class="day-image" src="giorno4.jpeg" alt="Giorno 4">
-  <p>9.00 - Inizia la giornata con dei Churro proprio dietro l'albergo. GIORNATA AL MARE BARCELONETA</p>
-  <p>14.00 - Pranzo in uno dei ristoranti lungo mare della Barceloneta</p>
-  <p>20.00 - Cena e serata libera</p>
-
+  <p>9:00 - Inizia la giornata con una colazione tradizionale catalana presso una panetteria locale.</p>
+  <p>10:00 - Visita la Casa Batlló, una delle famose opere di Antoni Gaudí.</p>
+  <p>12:00 - Dopo la visita alla Casa Batlló, prendi la metropolitana per il Parc de la Ciutadella.</p>
+  <p>13:00 - Pranza al Parc de la Ciutadella e goditi un picnic all'ombra degli alberi.</p>
+  <p>14:00 - Dopo pranzo, visita il Parc de la Ciutadella e rilassati passeggiando tra i suoi giardini e laghetti.</p>
+  <p>16:00 - Dirigiti verso il quartiere di El Born e visita il Museo Picasso.</p>
+  <p>18:00 - Dopo la visita al Museo Picasso, fai shopping nelle boutique del quartiere e fermati per un caffè o un drink in uno dei caffè locali.</p>
+  <p>20:00 - Torna a Plaça Catalunya e goditi l'ultima cena a Barcellona in uno dei ristoranti della zona.</p>
+  
   <h2>30 LUGLIO:</h2>
   <img class="day-image" src="giorno5.jpeg" alt="Giorno 5">
-  <p>9.00 - Inizia la giornata con dei Churro proprio dietro l'albergo. GIORNATA AL MARE: Mar Bella</p>
-  <p>14.00 - Pranzo in uno dei ristoranti lungo mare</p>
-  <p>20.00 - Cena vicino all'hotel</p>
-  <p>23.30 - TYGAAAA!!!</p>
-
-  <h2>31 LUGLIO:</h2>
-  <img class="day-image" src="giorno6.jpeg" alt="Giorno 6">
-  <p>12.00 - Check-out dell'hotel, lasciamo le valigie lì</p>
-  <p>16.30 - Partenza aeroporto</p>
-  <p>19.30 - Partenza Volo</p>
-
-  <script>
-    function openMaps(location) {
-      window.open('https://www.google.com/maps/search/' + encodeURIComponent(location));
-    }
-  </script>
+  <p>9:00 - Fai il check-out dall'hotel e preparati per il viaggio di ritorno.</p>
+  <p>10:00 - Prendi un taxi per l'aeroporto di Barcellona.</p>
+  <p>12:00 - Partenza volo per Venezia.</p>
+  <p>14:00 - Arrivo aeroporto di Venezia.</p>
+  <p>15:00 - Prendi un taxi per il centro di Venezia.</p>
+  <p>16:00 - Arrivo a Venezia e goditi un'ultima passeggiata romantica lungo i canali e i ponti della città.</p>
+  <p>18:00 - Cena romantica in un ristorante tradizionale veneziano.</p>
+  <p>20:00 - Prendi un vaporetto per Piazza San Marco e ammira l'illuminazione notturna della piazza e della Basilica di San Marco.</p>
+  <p>23:00 - Pernottamento in un hotel nel centro di Venezia.</p>
 </body>
 </html>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-image: url("bandiera_spagnola.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-  }
-  h1 {
-    color: #333;
-    margin-bottom: 10px;
-  }
-  h2 {
-    color: #666;
-    margin-top: 10px;
-  }
-  p {
-    margin: 5px 0;
-  }
-  a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  .day-image {
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    right: 10px;
-    top: 0;
-    opacity: 0.8;
-  }
-</style>
