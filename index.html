@@ -24,20 +24,38 @@
     .food {
       background-color: red;
     }
+    #score {
+      color: white;
+      text-align: center;
+      margin-top: 10px;
+      font-size: 20px;
+    }
+    #timer {
+      color: white;
+      text-align: center;
+      margin-top: 10px;
+      font-size: 20px;
+    }
   </style>
 </head>
 <body>
   <div id="game-board"></div>
+  <div id="score">Score: 0</div>
+  <div id="timer">Time: 0s</div>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const boardSize = 30; // Dimensione del campo di gioco (numero di celle per riga/colonna)
       const cellSize = 20; // Dimensione di ogni cella del campo di gioco (in pixel)
       const gameBoard = document.getElementById("game-board");
+      const scoreElement = document.getElementById("score");
+      const timerElement = document.getElementById("timer");
       const cells = []; // Array per memorizzare le celle del campo di gioco
       let snake = [{ x: 0, y: 0 }]; // Array per memorizzare le posizioni del serpente
       let food = { x: 0, y: 0 }; // Posizione del cibo
       let direction = "right"; // Direzione corrente del serpente
+      let score = 0; // Punteggio corrente
+      let startTime = null; // Tempo di inizio del gioco
 
       function createGameBoard() {
         for (let i = 0; i < boardSize; i++) {
@@ -94,6 +112,8 @@
           const index = food.x + food.y * boardSize;
           cells[index].classList.remove("food");
           generateFood();
+          score++;
+          scoreElement.textContent = "Score: " + score;
         } else {
           snake.pop();
         }
@@ -154,12 +174,23 @@
         }
       }
 
-      createGameBoard();
-      drawSnake();
-      generateFood();
-      const gameLoop = setInterval(moveSnake, 200); // Velocità di movimento del serpente (in millisecondi)
+      function updateTimer() {
+        const currentTime = Math.floor((Date.now() - startTime) / 1000);
+        timerElement.textContent = "Time: " + currentTime + "s";
+      }
 
-      document.addEventListener("keydown", handleKeyDown);
+      function startGame() {
+        createGameBoard();
+        drawSnake();
+        generateFood();
+        startTime = Date.now();
+        const gameLoop = setInterval(moveSnake, 200); // Velocità di movimento del serpente (in millisecondi)
+        const timerInterval = setInterval(updateTimer, 1000); // Aggiorna il timer ogni secondo
+
+        document.addEventListener("keydown", handleKeyDown);
+      }
+
+      startGame();
     });
   </script>
 </body>
