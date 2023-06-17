@@ -2,70 +2,138 @@
 <html>
 <head>
   <title>Pagina di vendita e contatto</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+    }
+
+    #content {
+      display: none;
+      margin: 20px auto;
+      width: 600px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    h2 {
+      color: #666;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 5px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+      background-color: #555;
+    }
+
+    a {
+      text-decoration: none;
+      color: #337ab7;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
   <script>
     function checkPassword() {
       var password = prompt("Inserisci la password:");
       if (password !== null && password === "1234") {
-        // Password corretta, mostra il contenuto della pagina
         document.getElementById("content").style.display = "block";
       } else {
         alert("Password errata. Accesso negato.");
       }
     }
   </script>
-  <style>
-    #content {
-      display: none;
-    }
-  </style>
 </head>
 <body onload="checkPassword()">
   <div id="content">
-    <h1>Prodotti Informatici</h1>
+    <h1 style="color: #ff6600; font-size: 28px; text-align: center;">Prodotti Informatici</h1>
 
-    <h2>Telefoni</h2>
+    <h2 style="color: #333; font-size: 20px; margin-bottom: 10px;">Telefoni</h2>
     <ul>
-      <li>Telefono 1</li>
-      <li>Telefono 2</li>
-      <li>Telefono 3</li>
+      <li style="color: #666; font-size: 16px;">Telefono 1</li>
+      <li style="color: #666; font-size: 16px;">Telefono 2</li>
+      <li style="color: #666; font-size: 16px;">Telefono 3</li>
     </ul>
 
-    <h2>Codici</h2>
+    <h2 style="color: #333; font-size: 20px; margin-bottom: 10px;">Codici</h2>
     <ul>
-      <li>Codice 1</li>
-      <li>Codice 2</li>
-      <li>Codice 3</li>
+      <li style="color: #666; font-size: 16px;">Codice 1</li>
+      <li style="color: #666; font-size
+16px;">Codice 2</li>
+      <li style="color: #666; font-size: 16px;">Codice 3</li>
     </ul>
 
-    <h2>Aiuti informatici</h2>
+    <h2 style="color: #333; font-size: 20px; margin-bottom: 10px;">Aiuti informatici</h2>
     <ul>
-      <li>Aiuto 1</li>
-      <li>Aiuto 2</li>
-      <li>Aiuto 3</li>
+      <li style="color: #666; font-size: 16px;">Aiuto 1</li>
+      <li style="color: #666; font-size: 16px;">Aiuto 2</li>
+      <li style="color: #666; font-size: 16px;">Aiuto 3</li>
     </ul>
 
-    <h1>Contattaci</h1>
+    <h1 style="color: #ff6600; font-size: 28px; text-align: center;">Contattaci</h1>
 
-    <form action="mailto:indirizzo@email.com" method="POST" enctype="text/plain">
-      <label for="name">Nome:</label>
+    <form style="margin-top: 10px;" action="mailto:email@example.com" method="POST" enctype="text/plain">
+      <label for="name" style="font-size: 16px;">Nome:</label>
       <input type="text" id="name" name="name" required><br>
 
-      <label for="email">Email:</label>
+      <label for="email" style="font-size: 16px;">Email:</label>
       <input type="email" id="email" name="email" required><br>
 
-      <label for="message">Messaggio:</label><br>
+      <label for="message" style="font-size: 16px;">Messaggio:</label><br>
       <textarea id="message" name="message" rows="5" cols="30" required></textarea><br>
 
-      <input type="submit" value="Invia">
-      <input type="reset" value="Reset">
+      <input type="submit" value="Invia" style="background-color: #ff6600; color: #fff; font-size: 16px; border-radius: 3px; padding: 10px 20px; border: none; cursor: pointer;">
+      <input type="reset" value="Reset" style="background-color: #333; color: #fff; font-size: 16px; border-radius: 3px; padding: 10px 20px; border: none; cursor: pointer; margin-left: 10px;">
     </form>
 
-    <h2>Appunti (PDF)</h2>
+    <h2 style="color: #333; font-size: 20px; margin-top: 20px;">Appunti (PDF)</h2>
 
     <ul>
-      <li><a href="allegato1.pdf" target="_blank">Appunto 1</a></li>
-      <li><a href="allegato2.pdf" target="_blank">Appunto 2</a></li>
-      <li><a href="allegato3.pdf" target="_blank">Appunto 3</a></li>
+      <li style="color: #666; font-size: 16px;"><a href="allegato1.pdf" target="_blank" style="color: #337ab7; text-decoration: none;">Appunto 1</a></li>
+      <li style="color: #666; font-size: 16px;"><a href="allegato2.pdf" target="_blank" style="color: #337ab7; text-decoration: none;">Appunto 2</a></li>
+      <li style="color: #666; font-size: 16px;"><a href="allegato3.pdf" target="_blank" style="color: #337ab7; text-decoration: none;">Appunto 3</a></li>
     </ul>
   </div>
 </body>
