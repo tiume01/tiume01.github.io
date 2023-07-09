@@ -9,12 +9,20 @@
       transform: scale(1.2);
     }
 
-    .login-form {
+    .login-form-container {
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
+    }
+
+    .login-form {
+      width: 300px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin: 0 auto;
     }
 
     .form-input-material {
@@ -22,7 +30,7 @@
     }
 
     .form-control-material {
-      width: 250px;
+      width: 100%;
       padding: 10px;
       border-radius: 5px;
       border: 1px solid #ccc;
@@ -36,6 +44,7 @@
       padding: 10px 20px;
       border: none;
       cursor: pointer;
+      width: 100%;
     }
 
     .btn-primary:hover {
@@ -45,13 +54,31 @@
     .error-message {
       color: red;
       margin-top: 10px;
+      text-align: center;
+    }
+
+    .content-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .content-section {
+      width: 300px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
     }
   </style>
   <script>
     function checkPassword() {
       var password = prompt("Inserisci la password:");
       if (password !== null && password === "1234") {
-        document.getElementById("loginForm").style.display = "block";
+        document.getElementById("loginFormContainer").style.display = "flex";
         document.getElementById("passwordError").style.display = "none";
       } else {
         document.getElementById("passwordError").style.display = "block";
@@ -78,48 +105,76 @@
 </head>
 <body onload="checkPassword()">
   <div id="content">
-    <h1 style="color: #ff6600; font-size: 28px; text-align: center;">10tmx01</h1>
-
-    <h2 style="color: #333; font-size: 20px; margin-bottom: 10px;">Telefono</h2>
-    <ul>
-      <li style="color: #666; font-size: 16px;">+39 4034081030</li>
-    </ul>
-
-    <h2 style="color: #333; font-size: 20px; margin-bottom: 10px;">Codici</h2>
-    <ul>
-      <li style="color: #666; font-size: 16px;"><a href="https://github.com/tiume01/tiume01.github.io/tree/main/project" target="_blank" style="color: #337ab7; text-decoration: none;">Progetto Tetris (C90)</a></li>
-    </ul>
-
-    <h2 style="color: #333; font-size: 20px; margin-bottom: 10px;">appunti</h2>
-    <ul>
-      <li style="color: #666; font-size: 16px;">Aiuto 1</li>
-    </ul>
-
-    <h1 style="color: #ff6600; font-size: 28px; text-align: center;">Contattaci</h1>
-
-    <form id="loginForm" class="login-form" style="display: none;">
-      <div class="form-input-material">
-        <input type="text" name="username" id="username" placeholder="Username" autocomplete="off" class="form-control-material" required>
-        <label for="username">Username</label>
-      </div>
-      <div class="form-input-material">
-        <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" class="form-control-material" required>
-        <label for="password">Password</label>
-      </div>
-      <button type="submit" class="btn btn-primary btn-ghost" onclick="handleLogin()">Login</button>
-    </form>
+    <div id="loginFormContainer" class="login-form-container" style="display: none;">
+      <form class="login-form">
+        <h1>Login</h1>
+        <div class="form-input-material">
+          <input type="text" name="username" id="username" placeholder="Username" autocomplete="off" class="form-control-material" required>
+          <label for="username">Username</label>
+        </div>
+        <div class="form-input-material">
+          <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" class="form-control-material" required>
+          <label for="password">Password</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-ghost" onclick="handleLogin()">Login</button>
+      </form>
+    </div>
 
     <div id="passwordError" class="error-message" style="display: none;">
       Password errata. Il sito è in fase di aggiornamento.
     </div>
 
-    <h2 style="color: #333; font-size: 20px; margin-top: 20px;">Appunti (PDF)</h2>
+    <div class="content-container" style="display: none;">
+      <h1 style="color: #ff6600; font-size: 28px; text-align: center;">10tmx01</h1>
 
-    <ul>
-      <li style="color: #666; font-size: 16px;"><a href="allegato1.pdf" target="_blank" style="color: #337ab7; text-decoration: none;">Appunto 1</a></li>
-      <li style="color: #666; font-size: 16px;"><a href="allegato2.pdf" target="_blank" style="color: #337ab7; text-decoration: none;">Appunto 2</a></li>
-      <li style="color: #666; font-size: 16px;"><a href="allegato3.pdf" target="_blank" style="color: #337ab7; text-decoration: none;">Appunto 3</a></li>
-    </ul>
+      <div class="content-section">
+        <h2 style="color: #333; font-size: 20px; margin-bottom: 10px;">Telefono</h2>
+        <ul>
+          <li style="color: #666; font-size: 16px;">+39 4034081030</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2 style="color: #333; font-size: 20px; margin-bottom: 10px;">Codici</h2>
+        <ul>
+          <li style="color: #666; font-size: 16px;"><a href="https://github.com/tiume01/tiume01.github.io/tree/main/project" target="_blank" style="color: #337ab7; text-decoration: none;">Progetto Tetris (C90)</a></li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2 style="color: #333; font-size: 20px; margin-bottom: 10px;">Appunti</h2>
+        <ul>
+          <li style="color: #666; font-size: 16px;">Aiuto 1</li>
+        </ul>
+      </div>
+
+      <h1 style="color: #ff6600; font-size: 28px; text-align: center;">Contattaci</h1>
+
+      <div class="content-section">
+        <form style="margin-top: 10px;" action="mailto:email@example.com" method="POST" enctype="text/plain">
+          <label for="name" style="font-size: 16px;">Nome:</label>
+          <input type="text" id="name" name="name" required><br>
+
+          <label for="email" style="font-size: 16px;">Email:</label>
+          <input type="email" id="email" name="email" required><br>
+
+          <label for="message" style="font-size: 16px;">Messaggio:</label><br>
+          <textarea id="message" name="message" rows="5" cols="30" required></textarea><br>
+
+          <input type="submit" value="Invia" style="background-color: #ff6600; color: #fff; font-size: 16px; border-radius: 3px; padding: 
+                    <input type="submit" value="Invia" style="background-color: #ff6600; color: #fff; font-size: 16px; border-radius: 3px; padding: 10px 20px; border: none; cursor: pointer;">
+          <input type="reset" value="Reset" style="background-color: #333; color: #fff; font-size: 16px; border-radius: 3px; padding: 10px 20px; border: none; cursor: pointer; margin-left: 10px;">
+        </form>
+      </div>
+
+      <h2 style="color: #333; font-size: 20px; margin-top: 20px;">Appunti (PDF)</h2>
+
+      <ul>
+        <li style="color: #666; font-size: 16px;"><a href="allegato1.pdf" target="_blank" style="color: #337ab7; text-decoration: none;">Appunto 1</a></li>
+        <li style="color: #666; font-size: 16px;"><a href="allegato2.pdf" target="_blank" style="color: #337ab7; text-decoration: none;">Appunto 2</a></li>
+        <li style="color: #666; font-size: 16px;"><a href="allegato3.pdf" target="_blank" style="color: #337ab7; text-decoration: none;">Appunto 3</a></li>
+      </ul>
+    </div>
   </div>
 </body>
 </html>
