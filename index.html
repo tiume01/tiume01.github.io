@@ -58,7 +58,7 @@
     }
 
     .content-container {
-      display: flex;
+      display: none;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -116,7 +116,7 @@
           <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" class="form-control-material" required>
           <label for="password">Password</label>
         </div>
-        <button type="submit" class="btn btn-primary btn-ghost" onclick="handleLogin()">Login</button>
+        <button type="button" class="btn btn-primary btn-ghost" onclick="handleLogin()">Login</button>
       </form>
     </div>
 
@@ -161,10 +161,12 @@
           <label for="message" style="font-size: 16px;">Messaggio:</label><br>
           <textarea id="message" name="message" rows="5" cols="30" required></textarea><br>
 
-          <input type="submit" value="Invia" style="background-color: #ff6600; color: #fff; font-size: 16px; border-radius: 3px; padding: 10px 20px; border: none
-                    <input type="submit" value="Invia" style="background-color: #ff6600; color: #fff; font-size: 16px; border-radius: 3px; padding: 10px 20px; border: none;">
+          <input type="submit" value="Invia" style="background-color: #ff6600; color: #fff; font-size: 16px; border-radius: 3px; padding: 10px 20px; border: none;">
         </form>
-      </div>
+                <input type="submit" value="Invia" style="background-color: #ff6600; color: #fff; font-size: 16px; border-radius: 3px; padding: 10px 20px; border: none;">
+      </form>
+    </div>
+
     </div>
   </div>
 </body>
