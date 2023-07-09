@@ -9,80 +9,69 @@
       transform: scale(1.2);
     }
 
-    #content {
-      display: none;
-      margin: 20px auto;
-      width: 720px;
-      background-color: #fff;
-      padding: 20px;
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .form-input-material {
+      margin-bottom: 20px;
+    }
+
+    .form-control-material {
+      width: 250px;
+      padding: 10px;
       border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-      text-align: center;
-      color: #333;
-    }
-
-    h2 {
-      color: #666;
-    }
-
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    textarea {
-      width: 100%;
-      padding: 5px;
-      border-radius: 3px;
       border: 1px solid #ccc;
     }
 
-    input[type="submit"],
-    input[type="reset"] {
-      padding: 10px 20px;
-      background-color: #333;
+    .btn-primary {
+      background-color: #ff6600;
       color: #fff;
+      font-size: 16px;
+      border-radius: 3px;
+      padding: 10px 20px;
       border: none;
       cursor: pointer;
-      border-radius: 3px;
     }
 
-    input[type="submit"]:hover,
-    input[type="reset"]:hover {
-      background-color: #555;
+    .btn-primary:hover {
+      background-color: #ff4d00;
     }
 
-    a {
-      text-decoration: none;
-      color: #337ab7;
-    }
-
-    a:hover {
-      text-decoration: underline;
+    .error-message {
+      color: red;
+      margin-top: 10px;
     }
   </style>
   <script>
     function checkPassword() {
       var password = prompt("Inserisci la password:");
       if (password !== null && password === "1234") {
-        document.getElementById("content").style.display = "block";
+        document.getElementById("loginForm").style.display = "block";
+        document.getElementById("passwordError").style.display = "none";
       } else {
-        alert("PASSWORD ERROR, THE SITE IS BEING UPDATED.");
+        document.getElementById("passwordError").style.display = "block";
+      }
+    }
+
+    function handleLogin() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      if (username === "admin" && password === "admin123") {
+        // Dar permessi completi
+        alert("Accesso completo con permessi di amministratore.");
+        // Redirect alla pagina con permessi completi
+      } else if (username === "user" && password === "user123") {
+        // Dar permessi limitati
+        alert("Accesso limitato come utente normale.");
+        // Redirect alla pagina con permessi limitati
+      } else {
+        alert("Credenziali non valide. Riprova.");
       }
     }
   </script>
@@ -103,24 +92,26 @@
 
     <h2 style="color: #333; font-size: 20px; margin-bottom: 10px;">appunti</h2>
     <ul>
-      <li style="color: #666; font-size: 16px;">Aiuto 1</li
+      <li style="color: #666; font-size: 16px;">Aiuto 1</li>
     </ul>
 
     <h1 style="color: #ff6600; font-size: 28px; text-align: center;">Contattaci</h1>
 
-    <form style="margin-top: 10px;" action="mailto:email@example.com" method="POST" enctype="text/plain">
-      <label for="name" style="font-size: 16px;">Nome:</label>
-      <input type="text" id="name" name="name" required><br>
-
-      <label for="email" style="font-size: 16px;">Email:</label>
-      <input type="email" id="email" name="email" required><br>
-
-      <label for="message" style="font-size: 16px;">Messaggio:</label><br>
-      <textarea id="message" name="message" rows="5" cols="30" required></textarea><br>
-
-      <input type="submit" value="Invia" style="background-color: #ff6600; color: #fff; font-size: 16px; border-radius: 3px; padding: 10px 20px; border: none; cursor: pointer;">
-      <input type="reset" value="Reset" style="background-color: #333; color: #fff; font-size: 16px; border-radius: 3px; padding: 10px 20px; border: none; cursor: pointer; margin-left: 10px;">
+    <form id="loginForm" class="login-form" style="display: none;">
+      <div class="form-input-material">
+        <input type="text" name="username" id="username" placeholder="Username" autocomplete="off" class="form-control-material" required>
+        <label for="username">Username</label>
+      </div>
+      <div class="form-input-material">
+        <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" class="form-control-material" required>
+        <label for="password">Password</label>
+      </div>
+      <button type="submit" class="btn btn-primary btn-ghost" onclick="handleLogin()">Login</button>
     </form>
+
+    <div id="passwordError" class="error-message" style="display: none;">
+      Password errata. Il sito è in fase di aggiornamento.
+    </div>
 
     <h2 style="color: #333; font-size: 20px; margin-top: 20px;">Appunti (PDF)</h2>
 
