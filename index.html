@@ -90,13 +90,13 @@
       var password = document.getElementById("password").value;
 
       if (username === "admin" && password === "admin123") {
-        // Dar permessi completi
-        alert("Accesso completo con permessi di amministratore.");
-        // Redirect alla pagina con permessi completi
+        document.getElementById("loginFormContainer").style.display = "none";
+        document.getElementById("passwordError").style.display = "none";
+        document.getElementById("contentContainer").style.display = "flex";
       } else if (username === "user" && password === "user123") {
-        // Dar permessi limitati
-        alert("Accesso limitato come utente normale.");
-        // Redirect alla pagina con permessi limitati
+        document.getElementById("loginFormContainer").style.display = "none";
+        document.getElementById("passwordError").style.display = "none";
+        document.getElementById("contentContainer").style.display = "flex";
       } else {
         alert("Credenziali non valide. Riprova.");
       }
@@ -124,7 +124,7 @@
       Password errata. Il sito è in fase di aggiornamento.
     </div>
 
-    <div class="content-container" style="display: none;">
+    <div id="contentContainer" class="content-container" style="display: none;">
       <h1 style="color: #ff6600; font-size: 28px; text-align: center;">10tmx01</h1>
 
       <div class="content-section">
@@ -161,19 +161,10 @@
           <label for="message" style="font-size: 16px;">Messaggio:</label><br>
           <textarea id="message" name="message" rows="5" cols="30" required></textarea><br>
 
-          <input type="submit" value="Invia" style="background-color: #ff6600; color: #fff; font-size: 16px; border-radius: 3px; padding: 
-                    <input type="submit" value="Invia" style="background-color: #ff6600; color: #fff; font-size: 16px; border-radius: 3px; padding: 10px 20px; border: none; cursor: pointer;">
-          <input type="reset" value="Reset" style="background-color: #333; color: #fff; font-size: 16px; border-radius: 3px; padding: 10px 20px; border: none; cursor: pointer; margin-left: 10px;">
+          <input type="submit" value="Invia" style="background-color: #ff6600; color: #fff; font-size: 16px; border-radius: 3px; padding: 10px 20px; border: none
+                    <input type="submit" value="Invia" style="background-color: #ff6600; color: #fff; font-size: 16px; border-radius: 3px; padding: 10px 20px; border: none;">
         </form>
       </div>
-
-      <h2 style="color: #333; font-size: 20px; margin-top: 20px;">Appunti (PDF)</h2>
-
-      <ul>
-        <li style="color: #666; font-size: 16px;"><a href="allegato1.pdf" target="_blank" style="color: #337ab7; text-decoration: none;">Appunto 1</a></li>
-        <li style="color: #666; font-size: 16px;"><a href="allegato2.pdf" target="_blank" style="color: #337ab7; text-decoration: none;">Appunto 2</a></li>
-        <li style="color: #666; font-size: 16px;"><a href="allegato3.pdf" target="_blank" style="color: #337ab7; text-decoration: none;">Appunto 3</a></li>
-      </ul>
     </div>
   </div>
 </body>
