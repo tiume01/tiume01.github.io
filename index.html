@@ -1,173 +1,118 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pagina di vendita e contatto</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f1f1f1;
-      transform: scale(1.2);
+    <style>
+html{
+    font-size:20px;
+    margin:0;
+    background: #0c0207;
     }
-
-    .login-form-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+#marco{
+    width: 1325px;
+    height: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 16px;
+    margin-top: 2em;
+ }
+#cielo{
+    border-radius: 16px;
+    width: 1325px;
+    height: 500px;
+    background: linear-gradient(to bottom,  #0B4C5F 0%,#04B4AE 52%,#0c0207 100%); 
+    position: absolute;
+    z-index: -30;
+    top: 0;
+    margin-top: 2em;
     }
-
-    .login-form {
-      width: 300px;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      margin: 0 auto;
+#edificios{
+    background: url('https://res.cloudinary.com/pastelitos/image/upload/v1610526533/eva/edificiosOne_fsg7nx.svg');
+    height: 500px; 
+    width: 1325px;
+    z-index: -10;
+    top: 6.5em;
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    -webkit-animation: animar_edificios 120s linear infinite;
+    -ms-animation: animar_edificios 120s linear infinite;
+    -moz-animation: animar_edificios 120s linear infinite;
+    position: absolute;
     }
-
-    .form-input-material {
-      margin-bottom: 20px;
+   @keyframes  animar_edificios {
+        from { background-position: 0 0; }
+        to { background-position: 100% 0; }
     }
-
-    .form-control-material {
-      width: 100%;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+    @-webkit-keyframes  animar_edificios {
+        from { background-position: 0 0; }
+        to { background-position: 100% 0; }
     }
-
-    .btn-primary {
-      background-color: #ff6600;
-      color: #fff;
-      font-size: 16px;
-      border-radius: 3px;
-      padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-      width: 100%;
+    @-ms-keyframes  animar_edificios {
+        from { background-position: 0 0; }
+        to { background-position: 100% 0; }
     }
-
-    .btn-primary:hover {
-      background-color: #ff4d00;
+    @-moz-keyframes  animar_edificios {
+        from { background-position: 0 0; }
+        to { background-position: 100% 0; }
+    } 
+#luna {
+    width: 6em;
+    height: 6em;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -moz-box-shadow: 30px 10px 0 #F7F8E0;
+    -webkit-box-shadow: 30px 10px 0 #F7F8E0;
+    box-shadow: 30px 10px 0 #F7F8E0;
+    margin-top: 1em;
+    margin-left: 50%;
+    position: absolute;
+    z-index: -19;
     }
-
-    .error-message {
-      color: red;
-      margin-top: 10px;
-      text-align: center;
+#muro{
+    height: 23em;
+    width: 100%;
+    background: -moz-linear-gradient(top,  #416663 0%, #0c0207 19%); 
+    background: -webkit-linear-gradient(top,  #416663 0%,#0c0207 19%); 
+    background: linear-gradient(to bottom,  #416663 0%,#0c0207 19%); 
+    bottom:0px; 
     }
-
-    .content-container {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+#gato{
+    background: url('https://res.cloudinary.com/pastelitos/image/upload/v1610526571/eva/gatito_pushui.svg');
+    height: 297px; 
+    width: 507.5px;
+    margin-top: 2em;
+    margin-left: 2em;
+    z-index: 10;
+    -webkit-animation: sprite-animation 1.2s steps(16,end) infinite;
+    -moz-animation: sprite-animation 1.2s steps(16,end) infinite; 
+    -ms-animation: sprite-animation 1.2s steps(16,end) infinite; 
+    animation: sprite-animation 1.2s steps(16,end) infinite;
     }
-
-    .content-section {
-      width: 300px;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
+@-webkit-keyframes sprite-animation { 
+        from { background-position: 0 0; }
+        to { background-position: -8120px 0; } 
     }
-  </style>
-  <script>
-    function checkPassword() {
-      var password = prompt("Inserisci la password:");
-      if (password !== null && password === "1234") {
-        document.getElementById("loginFormContainer").style.display = "flex";
-        document.getElementById("passwordError").style.display = "none";
-      } else {
-        document.getElementById("passwordError").style.display = "block";
-      }
+@-ms-keyframes sprite-animation { 
+        from { background-position: 0 0; }
+        to { background-position: -8120px 0; }
     }
-
-    function handleLogin() {
-      var username = document.getElementById("username").value;
-      var password = document.getElementById("password").value;
-
-      if (username === "admin" && password === "admin123") {
-        document.getElementById("loginFormContainer").style.display = "none";
-        document.getElementById("passwordError").style.display = "none";
-        document.getElementById("contentContainer").style.display = "flex";
-      } else if (username === "user" && password === "user123") {
-        document.getElementById("loginFormContainer").style.display = "none";
-        document.getElementById("passwordError").style.display = "none";
-        document.getElementById("contentContainer").style.display = "flex";
-      } else {
-        alert("Credenziali non valide. Riprova.");
-      }
+@-moz-keyframes sprite-animation { 
+        from { background-position: 0 0; }
+        to { background-position: -8120px 0; }
     }
-  </script>
+@keyframes sprite-animation { 
+        from { background-position: 0 0; }
+        to { background-position: -8120px 0; }
+    }
+    </style>
 </head>
-<body onload="checkPassword()">
-  <div id="content">
-    <div id="loginFormContainer" class="login-form-container" style="display: none;">
-      <form class="login-form">
-        <h1>Login</h1>
-        <div class="form-input-material">
-          <input type="text" name="username" id="username" placeholder="Username" autocomplete="off" class="form-control-material" required>
-          <label for="username">Username</label>
-        </div>
-        <div class="form-input-material">
-          <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" class="form-control-material" required>
-          <label for="password">Password</label>
-        </div>
-        <button type="button" class="btn btn-primary btn-ghost" onclick="handleLogin()">Login</button>
-      </form>
+<body>
+    <div id="marco">
+        <div id="cielo"></div>
+        <div id="luna"></div>
+        <div id="gato"></div>
+        <div id="muro"></div>
+        <div id="edificios"></div>
     </div>
-
-    <div id="passwordError" class="error-message" style="display: none;">
-      Password errata. Il sito è in fase di aggiornamento.
-    </div>
-
-    <div id="contentContainer" class="content-container" style="display: none;">
-      <h1 style="color: #ff6600; font-size: 28px; text-align: center;">10tmx01</h1>
-
-      <div class="content-section">
-        <h2 style="color: #333; font-size: 20px; margin-bottom: 10px;">Telefono</h2>
-        <ul>
-          <li style="color: #666; font-size: 16px;">+39 4034081030</li>
-        </ul>
-      </div>
-
-      <div class="content-section">
-        <h2 style="color: #333; font-size: 20px; margin-bottom: 10px;">Codici</h2>
-        <ul>
-          <li style="color: #666; font-size: 16px;"><a href="https://github.com/tiume01/tiume01.github.io/tree/main/project" target="_blank" style="color: #337ab7; text-decoration: none;">Progetto Tetris (C90)</a></li>
-        </ul>
-      </div>
-
-      <div class="content-section">
-        <h2 style="color: #333; font-size: 20px; margin-bottom: 10px;">Appunti</h2>
-        <ul>
-          <li style="color: #666; font-size: 16px;">Aiuto 1</li>
-        </ul>
-      </div>
-
-      <h1 style="color: #ff6600; font-size: 28px; text-align: center;">Contattaci</h1>
-
-      <div class="content-section">
-        <form style="margin-top: 10px;" action="mailto:email@example.com" method="POST" enctype="text/plain">
-          <label for="name" style="font-size: 16px;">Nome:</label>
-          <input type="text" id="name" name="name" required><br>
-
-          <label for="email" style="font-size: 16px;">Email:</label>
-          <input type="email" id="email" name="email" required><br>
-
-          <label for="message" style="font-size: 16px;">Messaggio:</label><br>
-          <textarea id="message" name="message" rows="5" cols="30" required></textarea><br>
-
-          <input type="submit" value="Invia" style="background-color: #ff6600; color: #fff; font-size: 16px; border-radius: 3px; padding: 10px 20px; border: none;">
-        </form>
-                <input type="submit" value="Invia" style="background-color: #ff6600; color: #fff; font-size: 16px; border-radius: 3px; padding: 10px 20px; border: none;">
-      </form>
-    </div>
-
-    </div>
-  </div>
 </body>
 </html>
