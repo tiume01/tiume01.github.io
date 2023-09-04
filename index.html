@@ -7,17 +7,41 @@
             background-color: #f0f0f0;
             margin: 0;
             padding: 0;
+            animation: backgroundAnimation 10s linear infinite alternate;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background-color: #f0f0f0;
+            }
+            50% {
+                background-color: #333;
+            }
+            100% {
+                background-color: #f0f0f0;
+            }
         }
 
         header {
             background-color: #333;
             color: #fff;
-            padding: 10px 0;
+            padding: 20px 0;
             text-align: center;
+            animation: headerAnimation 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes headerAnimation {
+            0% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(10px);
+            }
         }
 
         h1 {
             margin: 0;
+            font-size: 36px;
         }
 
         .container {
@@ -26,12 +50,32 @@
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: containerAnimation 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes containerAnimation {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.05);
+            }
         }
 
         .product {
             border: 1px solid #ddd;
             padding: 20px;
             margin-bottom: 20px;
+            animation: productAnimation 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes productAnimation {
+            0% {
+                transform: translateX(-5px);
+            }
+            100% {
+                transform: translateX(5px);
+            }
         }
 
         .product img {
@@ -52,7 +96,17 @@
             background-color: #333;
             color: #fff;
             text-align: center;
-            padding: 10px 0;
+            padding: 20px 0;
+            animation: footerAnimation 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes footerAnimation {
+            0% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(10px);
+            }
         }
     </style>
 </head>
