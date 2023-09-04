@@ -7,19 +7,7 @@
             background-color: #f0f0f0;
             margin: 0;
             padding: 0;
-            animation: backgroundAnimation 10s linear infinite alternate;
-        }
-
-        @keyframes backgroundAnimation {
-            0% {
-                background-color: #f0f0f0;
-            }
-            50% {
-                background-color: #333;
-            }
-            100% {
-                background-color: #f0f0f0;
-            }
+            transition: all 0.5s ease-in-out;
         }
 
         header {
@@ -27,16 +15,6 @@
             color: #fff;
             padding: 20px 0;
             text-align: center;
-            animation: headerAnimation 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes headerAnimation {
-            0% {
-                transform: translateY(-10px);
-            }
-            100% {
-                transform: translateY(10px);
-            }
         }
 
         h1 {
@@ -50,32 +28,12 @@
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            animation: containerAnimation 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes containerAnimation {
-            0% {
-                transform: scale(1);
-            }
-            100% {
-                transform: scale(1.05);
-            }
         }
 
         .product {
             border: 1px solid #ddd;
             padding: 20px;
             margin-bottom: 20px;
-            animation: productAnimation 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes productAnimation {
-            0% {
-                transform: translateX(-5px);
-            }
-            100% {
-                transform: translateX(5px);
-            }
         }
 
         .product img {
@@ -97,16 +55,9 @@
             color: #fff;
             text-align: center;
             padding: 20px 0;
-            animation: footerAnimation 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes footerAnimation {
-            0% {
-                transform: translateY(-10px);
-            }
-            100% {
-                transform: translateY(10px);
-            }
+            position: absolute;
+            bottom: -200px;
+            width: 100%;
         }
     </style>
 </head>
@@ -122,23 +73,25 @@
             <p>Prezzo: $99.99</p>
         </div>
 
-        <div class="product">
-            <img src="scarpa2.jpg" alt="Scarpe modello 2">
-            <h2>Scarpe Sportive</h2>
-            <p>Scarpe comode per l'attività fisica.</p>
-            <p>Prezzo: $79.99</p>
-        </div>
+        <!-- Aggiungi altri prodotti qui -->
 
-        <div class="product">
-            <img src="scarpa3.jpg" alt="Scarpe modello 3">
-            <h2>Scarpe Casual</h2>
-            <p>Scarpe per un look casual.</p>
-            <p>Prezzo: $59.99</p>
-        </div>
     </div>
 
     <footer>
         <p>&copy; 2023 Scarpe di Alta Qualità</p>
     </footer>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            var footer = document.querySelector('footer');
+            var scrollY = window.scrollY;
+
+            if (scrollY > 200) {
+                footer.style.bottom = '0';
+            } else {
+                footer.style.bottom = '-200px';
+            }
+        });
+    </script>
 </body>
 </html>
